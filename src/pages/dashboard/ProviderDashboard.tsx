@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { useAuth } from '@/lib/auth';
+import { useBookingNotifications } from '@/hooks/useBookingNotifications';
 
 // Mock data
 const mockStats = {
@@ -54,6 +55,7 @@ const mockPendingRequests = [
 
 export default function ProviderDashboard() {
   const { user, loading, hasRole } = useAuth();
+  useBookingNotifications();
   const navigate = useNavigate();
 
   useEffect(() => {
