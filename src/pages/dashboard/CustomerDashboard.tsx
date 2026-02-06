@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { useAuth } from '@/lib/auth';
+import { useBookingNotifications } from '@/hooks/useBookingNotifications';
 
 // Mock data
 const mockBookings = [
@@ -54,6 +55,7 @@ const statusColors: Record<string, string> = {
 
 export default function CustomerDashboard() {
   const { user, loading } = useAuth();
+  useBookingNotifications();
   const navigate = useNavigate();
 
   useEffect(() => {
